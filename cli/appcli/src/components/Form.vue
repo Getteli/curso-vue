@@ -1,17 +1,18 @@
 <script lang="js">
     import InputText from './Form/InputText.vue';
     import ButtonSend from './Form/ButtonSend.vue';
+    import MultiplosEventos from './MultiplosEventos.vue';
 
     export default {
         name: "Form",
         data() {
             return {
-                inputValue: "",
             }
         },
         components: {
             InputText,
-            ButtonSend
+            ButtonSend,
+            MultiplosEventos,
         },
         methods: {
             enviar(e){
@@ -38,4 +39,6 @@
         <InputText :label="'Email'" :nameInput="'email'" :placeholderInput="'Digite seu email'" :class="'form'" :id="'emailInput'" :required="true" :disabled="false" :maxLengthInput="50"/>
         <ButtonSend :label="'Enviar'" :id="'buttonId'" :class="'classButton'"/>
     </form>
+
+    <MultiplosEventos/>
 </template>
