@@ -8,6 +8,7 @@
   import Pessoa from './components/Pessoa.vue';
   import Form from './components/Form.vue';
   import Picture from './components/Picture.vue';
+  import Reutilizacao from './components/Reutilizacao.vue';
 
   export default {
 	// o name, na versão mais recente (em 2025.1) nao é mais necessário no App, pois o main já o reconhece, toda a estrutura de export tambem não. Porém, ao usar componente, é necessário ela para o App entender que importamos um componente para o template
@@ -20,6 +21,7 @@
 	  Pessoa,
 	  Form,
 	  Picture,
+	  Reutilizacao,
 	},
 	data(){
 		return{
@@ -124,6 +126,13 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<hr>
+
+	<Reutilizacao/>
+	<Reutilizacao/>
+	<Reutilizacao/>
+	<Reutilizacao/>
 </template>
 
 <!-- css global -->
