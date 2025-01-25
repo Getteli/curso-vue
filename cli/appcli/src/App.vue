@@ -7,41 +7,56 @@
   import LifeCycle from './components/LifeCycle.vue';
   import Pessoa from './components/Pessoa.vue';
   import Form from './components/Form.vue';
+  import Picture from './components/Picture.vue';
 
   export default {
-    // o name, na versão mais recente (em 2025.1) nao é mais necessário no App, pois o main já o reconhece, toda a estrutura de export tambem não. Porém, ao usar componente, é necessário ela para o App entender que importamos um componente para o template
-    name: 'App', // nome do componente, utilizado para referenciar esse componente em outros lugares
-    components: { // componentes filhos do componente App
-      FirstComponent, // nome do componente filho importado
-      DataComponent,
-      LifeCycleSetup,
-      LifeCycle,
-      Pessoa,
-      Form,
-    }
+	// o name, na versão mais recente (em 2025.1) nao é mais necessário no App, pois o main já o reconhece, toda a estrutura de export tambem não. Porém, ao usar componente, é necessário ela para o App entender que importamos um componente para o template
+	name: 'App', // nome do componente, utilizado para referenciar esse componente em outros lugares
+	components: { // componentes filhos do componente App
+	  FirstComponent, // nome do componente filho importado
+	  DataComponent,
+	  LifeCycleSetup,
+	  LifeCycle,
+	  Pessoa,
+	  Form,
+	  Picture,
+	},
+	data(){
+		return{
+			// para ser bindado
+			meu_link: 'https://github.com/Getteli/curso-vue',
+		}
+	}
   }
 </script>
 
 <!-- a tag template é onde o vue enxerga tudo o que vai para a tela, onde será o container de html -->
 <template>
-  <!-- chamamos o componente ao html como se o nome dele fosse uma tag -->
-  <FirstComponent/>
-  
-  <h1>Hello World Vue by CLI !</h1>
-  
-  <!-- ao chamar o componente podemos colocar seus parametros com ":parametro" -->
-  <!-- perceba as aspas, duplas e com simples dentro, para passar como string, se nao será um "objeto" ou "variavel" -->
-  <DataComponent :nickname="'Getteli'"" />  
+	<!-- chamamos o componente ao html como se o nome dele fosse uma tag -->
+	<FirstComponent/>
 
-  <LifeCycleSetup :fora="'Venho do App'"/>
+	<h1>Hello World Vue by CLI !</h1>
 
-  <LifeCycle/>
+	<!-- ao chamar o componente podemos colocar seus parametros com ":parametro" -->
+	<!-- perceba as aspas, duplas e com simples dentro, para passar como string, se nao será um "objeto" ou "variavel" -->
+	<DataComponent :nickname="'Getteli'"" />  
 
-  <hr>
+	<LifeCycleSetup :fora="'Venho do App'"/>
 
-  <Pessoa/>
+	<LifeCycle/>
 
-  <hr>
+	<hr>
 
-  <Form/>
+	<Pessoa/>
+
+	<hr>
+
+	<Form/>
+
+	<hr>
+
+	<h5>Argumentos e atributos dinamicos</h5>
+	<!-- v-bind serve para capturar a o conteudo do atributo do html, e indicar que aquilo é um dado/variavel da aplicacao em vue -->
+	<p>Acesse o link <a v-bind:href="meu_link" target="_blank">clicando aqui</a></p>
+	<Picture/>
 </template>
