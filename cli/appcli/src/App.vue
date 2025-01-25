@@ -68,7 +68,12 @@
 
 	<!-- ao chamar o componente podemos colocar seus parametros com ":parametro" -->
 	<!-- perceba as aspas, duplas e com simples dentro, para passar como string, se nao será um "objeto" ou "variavel" -->
-	<DataComponent :nickname="'Getteli'"" />  
+	<!-- Caso a gente passe como ":parametro" -->
+	<!-- Ai nao precisamos do "''" aspas dentro de aspas pois ele sabe que é uma string-->
+	<DataComponent :nickname="'Getteli'" />
+	 <!-- <DataComponent nickname="Getteli" /> -->
+	<!-- com variavel -->
+	<DataComponent :nickname="meu_link" />
 
 	<LifeCycleSetup :fora="'Venho do App'"/>
 
