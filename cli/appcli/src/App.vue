@@ -50,6 +50,13 @@
 			// função para mostrar um alerta
             alert('Alerta @click do vue!');
 		},
+		// o que ele recebe como padrão É o segundo parametro do emit lá em dataComponent, que seria no lugar do event
+		recebiFilho(payload)
+		{
+			// função para receber dados do filho
+            console.log('Filho enviou dados');
+			console.table(payload)
+		}
 	}
   }
 </script>
@@ -63,17 +70,17 @@
         O css local/scoped no FirstComponent <b class="boldc">Não</b> altera este subtitle que está no App!
     </subtitle>
 
-
 	<h1>Hello World Vue by CLI !</h1>
 
 	<!-- ao chamar o componente podemos colocar seus parametros com ":parametro" -->
 	<!-- perceba as aspas, duplas e com simples dentro, para passar como string, se nao será um "objeto" ou "variavel" -->
 	<!-- Caso a gente passe como ":parametro" -->
 	<!-- Ai nao precisamos do "''" aspas dentro de aspas pois ele sabe que é uma string-->
-	<DataComponent :nickname="'Getteli'" />
+	<!-- <DataComponent :nickname="'Getteli'" /> -->
 	 <!-- <DataComponent nickname="Getteli" /> -->
 	<!-- com variavel -->
-	<DataComponent :nickname="meu_link" />
+	<DataComponent :nickname="meu_link" @enviarPPai="recebiFilho($event)" />
+	<!-- observação, para receber o emit, precisa retornar o $event, diferente de quando é o evento mesmo em um metodo que pode ser implicito, neste caso precisa estar explicito que esta recebendo uma variavel do filho (o segundo parametro do emit) -->
 
 	<LifeCycleSetup :fora="'Venho do App'"/>
 

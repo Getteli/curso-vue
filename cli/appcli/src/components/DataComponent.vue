@@ -19,6 +19,8 @@
             }
         },
         // e tambem podemos ter os metodos
+        // ou emit (que é o envio de baixo para cima, enviar algo para o pai)
+        emits: ['enviarPPai'], // neste caso vou enviar um metodo
         // todo o conteudo (data ou methods) pode ser chamado ou configurado ao chamar o componente
     }
 </script>
@@ -26,4 +28,6 @@
 <template>
     <p>Olá ! {{ greet }}</p>
     <p>Seu apelido é: {{ nickname }}</p>
+
+    <button @click="$emit('enviarPPai', {'tipo': 'objeto', 'dados': ['1','a', 2]})">Envia um dado para o pai (App)</button>
 </template>
