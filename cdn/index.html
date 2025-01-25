@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js via CDN</title>
+    <!-- importando o cdn do vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="src/app.js" defer></script>  <!-- defer pois vai carregar depois do arquivo -->
+</head>
+<body>
+    <!-- elemento para iniciar o app pelo vue -->
+    <!-- vue precisa de um elemento por onde ele vai iniciar -->
+    <div id="app">
+        <!-- hello world -->
+            <!-- a sintaxe do vue para colocar no html é {{}} e dentro chamamos a propriedade que esta sendo retornado no data -->
+            <p>Meu nome é: {{ name }}, tenho {{ age }}</p>
+
+        <form action="" id="app-form">
+            <!-- v-model é como informar o name para enviar ao back, mas no caso estamos enviando para o vue -->
+            <input type="text" v-model="input_name" placeholder="digite seu nome">
+            <!-- a diretiva v-on é uma forma que podemos indicar para o vue que ao clicar queremos que ele procure o nome de um metodo para executar. é como o event click no js padrao -->
+            <button type="submit" v-on:click="submitForm">Enviar</button>
+        </form>
+
+        <!-- usando data binding -->
+        <p>Data biding: enquanto digito no input_name: {{ input_name }}</p>
+    </div>
