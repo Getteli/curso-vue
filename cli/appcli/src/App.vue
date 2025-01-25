@@ -25,6 +25,22 @@
 		return{
 			// para ser bindado
 			meu_link: 'https://github.com/Getteli/curso-vue',
+			tecnologias: [
+				"PHP",
+				"Javascript",
+				"Node",
+				"Vue",
+                "Bootstrap",
+                "Laravel",
+				"Wordpress",
+				"Linux",
+			],
+			array_objets: [
+				{id: 1, nome: 'John', idade: 25},
+                {id: 2, nome: 'Jane', idade: 30},
+                {id: 3, nome: 'Bob', idade: 20},
+                {id: 4, nome: 'Alice', idade: 35},
+			]
 		}
 	},
 	methods: {
@@ -76,15 +92,72 @@
 	<!-- no caso @click indica que é para o vue que ao clicar ele vai executar algo no vue -->
 	<!-- ai colocamos um nome de um metodo -->
 	<button @click="showAlert">Click para ver o alert</button>
+
+	<hr>
+	<h3>Tecnologias</h3>
+	<!-- forma simples -->
+	<ul>
+		<li v-for="tec in tecnologias">{{ tec }}</li>
+	</ul>
+
+	<h3>Com index</h3>
+	<!-- se quisermos com index, colocamos entre pareteses e botamos o index como segundo parametro -->
+	<ul>
+		<li v-for="(tec,index) in tecnologias" :key="index">{{ tec }} ({{ index }}) <i class="sub" v-if="index > 3"> (i maior que 3)</i></li>
+	</ul>
+
+	<h3>tabela</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nome</th>
+				<th>Idade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- v-for também aceita arrays com objetos -->
+			<tr v-for="(obj, i) in array_objets" :key="obj.id">
+				<td>{{ i }}</td>
+				<td>{{ obj.nome }}</td>
+				<td>{{ obj.idade }}</td>
+			</tr>
+		</tbody>
+	</table>
 </template>
 
 <!-- css global -->
 <style>
+	*{
+		font-family: Arial, Helvetica, sans-serif;
+	}
     /* css que será aplicado somente a esse template */
     h1{
         color: red;
     }
 	p{
 		color: violet;
+	}
+	.sub
+	{
+		font-size: 12px;
+        color: gray;
+	}
+
+	/* table */
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
 	}
 </style>
