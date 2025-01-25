@@ -26,6 +26,12 @@
 			// para ser bindado
 			meu_link: 'https://github.com/Getteli/curso-vue',
 		}
+	},
+	methods: {
+		showAlert(){
+			// função para mostrar um alerta
+            alert('Alerta @click do vue!');
+		},
 	}
   }
 </script>
@@ -59,4 +65,10 @@
 	<!-- v-bind serve para capturar a o conteudo do atributo do html, e indicar que aquilo é um dado/variavel da aplicacao em vue -->
 	<p>Acesse o link <a v-bind:href="meu_link" target="_blank">clicando aqui</a></p>
 	<Picture/>
+
+	<!-- sobre metodos/funcoes -->
+	<!-- o @ indica que o que vem depois é uma ação que será executada no vue -->
+	<!-- no caso @click indica que é para o vue que ao clicar ele vai executar algo no vue -->
+	<!-- ai colocamos um nome de um metodo -->
+	<button @click="showAlert">Click para ver o alert</button>
 </template>

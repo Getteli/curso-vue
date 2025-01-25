@@ -15,6 +15,12 @@
         mounted() {
             console.log('Componente montado!');
             this.varHook = "Valor ao montar";
+            this.execMethod();
+        },
+        methods: {
+            execMethod(){
+                console.log('Executando método customizado!');
+            }
         }
     }
 </script>
