@@ -40,6 +40,11 @@
 <template>
 	<!-- chamamos o componente ao html como se o nome dele fosse uma tag -->
 	<FirstComponent/>
+	<br>
+    <subtitle>
+        O css local/scoped no FirstComponent <b class="boldc">Não</b> altera este subtitle que está no App!
+    </subtitle>
+
 
 	<h1>Hello World Vue by CLI !</h1>
 
@@ -72,3 +77,14 @@
 	<!-- ai colocamos um nome de um metodo -->
 	<button @click="showAlert">Click para ver o alert</button>
 </template>
+
+<!-- css global -->
+<style>
+    /* css que será aplicado somente a esse template */
+    h1{
+        color: red;
+    }
+	p{
+		color: violet;
+	}
+</style>
