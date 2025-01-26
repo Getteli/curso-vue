@@ -79,16 +79,6 @@
   ],
   "burgers": [
     {
-      "id": "67b3",
-      "name": "AAAAAA",
-      "pao": "3 Queijos",
-      "carne": "Alcatra",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Finalizado"
-    },
-    {
       "id": "c090",
       "name": "Abbbbb",
       "pao": "Italiano Branco",
@@ -97,7 +87,7 @@
         "Bacon",
         "Salame"
       ],
-      "status": "Em produção"
+      "status": "Solicitado"
     },
     {
       "id": "19a4",
@@ -106,6 +96,19 @@
       "carne": "Picanha",
       "opcionais": [
         "Bacon"
+      ],
+      "status": "Em produção"
+    },
+    {
+      "id": "6e6e",
+      "name": "Douglas Araujo",
+      "pao": "Parmesão e Orégano",
+      "carne": "Picanha",
+      "opcionais": [
+        "Bacon",
+        "Cheddar",
+        "Salame",
+        "Tomate"
       ],
       "status": "Em produção"
     }

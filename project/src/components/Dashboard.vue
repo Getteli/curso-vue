@@ -1,4 +1,6 @@
 <template>
+    <Messages :msg="mensagem" v-show="showMsg"/>
+
     <div class="burger-table">
         <table>
             <thead>
@@ -39,6 +41,8 @@
 </template>
 
 <script>
+    import Messages from './Messages.vue';
+
     export default{
         name: "Dashboard",
         data() {
@@ -46,7 +50,12 @@
                 burgers: [],
                 burger_id: null,
                 statusDb: [],
+                showMsg: false,
+                mensagem: null,
             }
+        },
+        components: {
+            Messages,
         },
         methods:{
             async getBurgers() {
@@ -72,7 +81,14 @@
                 if (!res.ok)
                 {
                     console.error(`Error updating status: ${res.status}`);
-                }                
+                }else
+                {
+                    this.mensagem = `Status do pedido n° ${id} alterado para: ${status}`;
+                    this.showMsg = true
+                    setTimeout(() => {
+                        this.showMsg = false;
+                    }, 2500);
+                } 
             },
             async deleteBurger(id) {
                 const res = await fetch(`http://localhost:3000/burgers/${id}`, {
@@ -82,6 +98,11 @@
                 if (res.ok)
                 {
                     this.burgers = this.burgers.filter(burger => burger.id!== id);
+                    this.mensagem = `Hamburger deletado com sucesso `;
+                    this.showMsg = true
+                    setTimeout(() => {
+                        this.showMsg = false;
+                    }, 2500);
                 }
                 else
                 {
