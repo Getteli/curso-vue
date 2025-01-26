@@ -14,7 +14,7 @@
     <div id="nav">
         <!-- esta tag é para indicar ao routes do vue que isto é um LINK de rota -->
         <router-link to="/" id="logo">
-            <img :src="logo_src" :alt="app_name" srcset="images/logo.png">
+            <img :src="logo_src" :alt="app_name" :srcset="logo_src">
         </router-link>
         <!-- o to indica para ONDE a rota irá -->
         <router-link to="/">Início</router-link> |

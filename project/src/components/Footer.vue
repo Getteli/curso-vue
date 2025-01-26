@@ -1,6 +1,6 @@
 <template>
     <footer id="footer">
-        <p>Make your burguer - projeto em vue &copy; 2025</p>
+        <p>Make your burger - projeto em vue &copy; 2025</p>
     </footer>
 </template>
 
@@ -22,7 +22,6 @@
         align-items: center;
         background-color: red;
         padding: 10px;
-        position: fixed;
         bottom: 0;
         width: 100%;
         color: rgb(255, 175, 175);

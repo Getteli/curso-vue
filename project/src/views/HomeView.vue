@@ -1,13 +1,18 @@
 <template>
+  <Banner />
   <div class="main-container">
-    <h1>Inicio</h1>
+    <h1>Monte o seu burger:</h1>
+    <p>formulário</p>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HomeView',
-  components: {
+  import Banner from '@/components/Banner.vue';
+
+  export default {
+    name: 'HomeView',
+    components: {
+      Banner,
+    }
   }
-}
 </script>
