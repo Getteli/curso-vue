@@ -2,7 +2,7 @@
     <div>
         <p>Componente de mensagem</p>
 
-        <form id="burger-form">
+        <form id="burger-form" @submit="createBurguer">
             <div class="input-container">
                 <label for="name">Digite seu nome:</label>
                 <input type="text" id="name" name="name" required v-model="name" placeholder="Digite seu nome">
@@ -10,29 +10,25 @@
             <div class="input-container">
                 <label for="pao">Selecione seu pão:</label>
                 <select id="pao" name="pao" v-model="pao">
-                    <option value="">Selecione</option>
+                    <option v-for="pao in paes" :keys="pao.id" :value="pao.tipo">{{ pao.tipo }}</option>
                 </select>
             </div>
             <div class="input-container">
                 <label for="carne"> Selecione a sua carne:</label>
                 <select id="carne" name="carne" v-model="carne">
-                    <option value="">Selecione</option>
+                    <option v-for="carne in carnes" :keys="carne.id" :value="carne.tipo">{{ carne.tipo }}</option>
                 </select>
             </div>
             <div class="opcionais-container">
                 <label for="opcionais">Selecione os opcionais</label>
-                <div class="checkbox-container">
-                    <input type="checkbox" name="opcionais" v-model="opcionais">
-                    <span>Opcional</span>
-                </div>
-                <div class="checkbox-container">
-                    <input type="checkbox" name="opcionais" v-model="opcionais">
-                    <span>Opcional</span>
+                <div class="checkbox-container" v-for="opcional in opcionaisdata" :key="opcional.id">
+                    <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.tipo">
+                    <span>{{opcional.tipo}}</span>
                 </div>
             </div>
             <div>
-                <button @click="finalizarBurger">Finalizar</button>
-            </div>                
+                <button type="submit">Finalizar</button>
+            </div>
         </form>
     </div>
 </template>
@@ -43,8 +39,70 @@
         name: 'BurgerForm',
         data() {
             return {
+                // vem
+                paes: null,
+                carnes: null,
+                opcionaisdata: null,
+                // envia
+                name: null,
+                pao: null,
+                carne: null,
+                opcionais: [],
+                status: "solicitado",
+                msg: null
             }
+        },
+        methods: {
+            async getIngredientes() {
+                const req = await fetch('http://localhost:3000/ingredientes');
+                const data = await req.json();
+
+                this.paes = data.paes;
+                this.carnes = data.carnes;
+                this.opcionaisdata = data.opcionais;
+            },
+
+            async createBurguer(e) {
+                e.preventDefault();
+
+                const data = {
+                    name: this.name,
+                    pao: this.pao,
+                    carne: this.carne,
+                    opcionais: Array.from(this.opcionais),
+                    status: this.status
+                };
+
+                const dataJson = JSON.stringify(data);
+
+                const req = await fetch('http://localhost:3000/burgers',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: dataJson
+                });
+
+                const res = await req.json();
+
+                // colocar uma msg de sistema
+                // limpar os campos
+                this.clearInputs();
+            },
+            
+            clearInputs() {
+                this.name = '';
+                this.pao = null;
+                this.carne = null;
+                this.opcionais = [];
+                this.status ='solicitado';
+                this.msg = null;
+            }
+        },
+        mounted() {
+            this.getIngredientes();
         }
+
     }
 
 </script>
@@ -67,9 +125,10 @@
     .checkbox-container
     {
         display: flex;
-        width: 25%;
+        width: 40%;
         flex-direction: row;
         align-items: flex-start;
+        margin-left: 0;
         margin: 15px;
     }
 
@@ -89,6 +148,7 @@
 
     .opcionais-container
     {
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
