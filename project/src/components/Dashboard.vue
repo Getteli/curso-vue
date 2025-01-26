@@ -1,42 +1,44 @@
 <template>
-    <Messages :msg="mensagem" v-show="showMsg"/>
+    <div class="main-container">
+        <Messages :msg="mensagem" v-show="showMsg"/>
 
-    <div class="burger-table">
-        <table>
-            <thead>
-                <tr>
-                    <th><b>#</b></th>
-                    <th>Name</th>
-                    <th>Pão</th>
-                    <th>Carne</th>
-                    <th>Opcional</th>
-                    <th>Status</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="burger in burgers" :key="burger.id">
-                    <td><b>{{ burger.id }}</b></td>
-                    <td>{{ burger.name }}</td>
-                    <td>{{ burger.pao }}</td>
-                    <td>{{ burger.carne }}</td>
-                    <td>
-                        <ul>
-                            <li v-for="opt in burger.opcionais">{{ opt }}</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <!-- o vue tem o evento change e se quisermos o obj selecionado, pegamos como no javascript, com o event target value -->
-                        <select name="status" @change="changeStatus(burger.id,$event.target.value)">
-                            <option v-for="status in statusDb" :value="status.tipo" :selected="burger.status == status.tipo ? true : false">{{ status.tipo }}</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button @click="deleteBurger(burger.id)">Excluir Pedido</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="burger-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th><b>#</b></th>
+                        <th>Name</th>
+                        <th>Pão</th>
+                        <th>Carne</th>
+                        <th>Opcional</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="burger in burgers" :key="burger.id">
+                        <td><b>{{ burger.id }}</b></td>
+                        <td>{{ burger.name }}</td>
+                        <td>{{ burger.pao }}</td>
+                        <td>{{ burger.carne }}</td>
+                        <td>
+                            <ul>
+                                <li v-for="opt in burger.opcionais">{{ opt }}</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <!-- o vue tem o evento change e se quisermos o obj selecionado, pegamos como no javascript, com o event target value -->
+                            <select name="status" @change="changeStatus(burger.id,$event.target.value)">
+                                <option v-for="status in statusDb" :value="status.tipo" :selected="burger.status == status.tipo ? true : false">{{ status.tipo }}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button @click="deleteBurger(burger.id)">Excluir Pedido</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 
