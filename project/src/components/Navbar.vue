@@ -18,8 +18,8 @@
         </router-link>
         <!-- o to indica para ONDE a rota irá -->
         <router-link to="/">Início</router-link> |
-        <router-link to="/about">Sobre</router-link> |
-        <router-link to="/burgues">Pedidos</router-link>
+        <router-link to="/burgues">Pedidos</router-link> |
+        <router-link to="/about">Sobre</router-link>
     </div>
 </template>
 

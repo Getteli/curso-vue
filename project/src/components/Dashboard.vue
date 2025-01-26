@@ -19,16 +19,17 @@
                     <td>{{ burger.pao }}</td>
                     <td>{{ burger.carne }}</td>
                     <td>
-                        <p v-for="opt in burger.opcionais">. {{ opt }}</p>
+                        <ul>
+                            <li v-for="opt in burger.opcionais">{{ opt }}</li>
+                        </ul>
                     </td>
                     <td>
                         <select name="status">
-                            <option v-for="status in ['Solicitado', 'Pronto', 'Entregue']" :value="status">{{ status }}</option>
+                            <option @select="changeStatus(burger)" v-for="status in statusDb" :value="status.id">{{ status.tipo }}</option>
                         </select>
                     </td>
                     <td>
-                        <button @click="editBurger(burger)">Edit</button>
-                        <button @click="deleteBurger(burger)">Delete</button>
+                        <button @click="deleteBurger(burger)">Excluir Pedido</button>
                     </td>
                 </tr>
             </tbody>
@@ -42,6 +43,8 @@
         data() {
             return {
                 burgers: [],
+                burger_id: null,
+                statusDb: [],
             }
         },
         methods:{
@@ -50,10 +53,17 @@
                 const data = await req.json();
                 this.burgers = data;
             },
-            deleteBurger(burger) {}
+            async getStatus() {
+                const req = await fetch('http://localhost:3000/status');
+                const data = await req.json();
+                this.statusDb = data;
+            },
+            changeStatus(burger) {},
+            deleteBurger(burger) {},
         },
         mounted() {
             this.getBurgers();
+            this.getStatus();
         }
     }
 </script>
