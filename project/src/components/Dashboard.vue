@@ -24,12 +24,13 @@
                         </ul>
                     </td>
                     <td>
-                        <select name="status">
-                            <option @select="changeStatus(burger)" v-for="status in statusDb" :value="status.id">{{ status.tipo }}</option>
+                        <!-- o vue tem o evento change e se quisermos o obj selecionado, pegamos como no javascript, com o event target value -->
+                        <select name="status" @change="changeStatus(burger.id,$event.target.value)">
+                            <option v-for="status in statusDb" :value="status.tipo" :selected="burger.status == status.tipo ? true : false">{{ status.tipo }}</option>
                         </select>
                     </td>
                     <td>
-                        <button @click="deleteBurger(burger)">Excluir Pedido</button>
+                        <button @click="deleteBurger(burger.id)">Excluir Pedido</button>
                     </td>
                 </tr>
             </tbody>
@@ -58,8 +59,35 @@
                 const data = await req.json();
                 this.statusDb = data;
             },
-            changeStatus(burger) {},
-            deleteBurger(burger) {},
+            async changeStatus(id, status) {
+                console.log(id, status);
+                const res = await fetch(`http://localhost:3000/burgers/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ status }),
+                });
+
+                if (!res.ok)
+                {
+                    console.error(`Error updating status: ${res.status}`);
+                }                
+            },
+            async deleteBurger(id) {
+                const res = await fetch(`http://localhost:3000/burgers/${id}`, {
+                    method: 'DELETE',
+                });
+
+                if (res.ok)
+                {
+                    this.burgers = this.burgers.filter(burger => burger.id!== id);
+                }
+                else
+                {
+                    console.error(`Error deleting burger: ${res.status}`);
+                }
+            },
         },
         mounted() {
             this.getBurgers();

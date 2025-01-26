@@ -79,54 +79,6 @@
   ],
   "burgers": [
     {
-      "id": "b6e5",
-      "name": "Douglas",
-      "pao": "3 Queijos",
-      "carne": "Alcatra",
-      "opcionais": [
-        "Bacon",
-        "Salame"
-      ],
-      "status": "solicitado"
-    },
-    {
-      "id": "68bc",
-      "name": "Douglas Araujo",
-      "pao": "Italiano Branco",
-      "carne": "Veggie burger",
-      "opcionais": [
-        "Cebola roxa",
-        "Pepino",
-        "Tomate"
-      ],
-      "status": "solicitado"
-    },
-    {
-      "id": "259f",
-      "name": "Douglas Araujo",
-      "pao": "Parmesão e Orégano",
-      "carne": "Maminha",
-      "opcionais": [
-        "Bacon",
-        "Cheddar",
-        "Tomate",
-        "Salame"
-      ],
-      "status": "solicitado"
-    },
-    {
-      "id": "56b4",
-      "name": "Douglas Araujo",
-      "pao": "Italiano Branco",
-      "carne": "Alcatra",
-      "opcionais": [
-        "Bacon",
-        "Salame",
-        "Cebola roxa"
-      ],
-      "status": "solicitado"
-    },
-    {
       "id": "67b3",
       "name": "AAAAAA",
       "pao": "3 Queijos",
@@ -134,7 +86,7 @@
       "opcionais": [
         "Bacon"
       ],
-      "status": "solicitado"
+      "status": "Finalizado"
     },
     {
       "id": "c090",
@@ -145,7 +97,7 @@
         "Bacon",
         "Salame"
       ],
-      "status": "solicitado"
+      "status": "Em produção"
     },
     {
       "id": "19a4",
@@ -155,142 +107,7 @@
       "opcionais": [
         "Bacon"
       ],
-      "status": "solicitado"
-    },
-    {
-      "id": "3345",
-      "name": "jjjjj",
-      "pao": "3 Queijos",
-      "carne": "Picanha",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "solicitado"
-    },
-    {
-      "id": "98fc",
-      "name": "aaa",
-      "pao": "Italiano Branco",
-      "carne": "Picanha",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "solicitado"
-    },
-    {
-      "id": "1c24",
-      "name": "ggg",
-      "pao": "Italiano Branco",
-      "carne": "Alcatra",
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "c553",
-      "name": "aaaaa",
-      "pao": "Parmesão e Orégano",
-      "carne": "Alcatra",
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "ada5",
-      "name": "aaaaa",
-      "pao": "3 Queijos",
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "1ec9",
-      "name": "jjjj",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "3ecc",
-      "name": "a",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "8969",
-      "name": "h",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "8850",
-      "name": "a",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "f1b6",
-      "name": "kkkkk",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "2e69",
-      "name": "f",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "7787",
-      "name": "aaa",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "9aa5",
-      "name": "a",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "9edb",
-      "name": "g",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "a636",
-      "name": "f",
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "solicitado"
-    },
-    {
-      "id": "2458",
-      "name": "Douglas Araujo",
-      "pao": "Italiano Branco",
-      "carne": "Picanha",
-      "opcionais": [
-        "Bacon",
-        "Salame"
-      ],
-      "status": "solicitado"
+      "status": "Em produção"
     }
   ]
 }
